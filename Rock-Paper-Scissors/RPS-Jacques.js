@@ -32,39 +32,41 @@ const userInput = args[0].toLowerCase()
 const computer = choices[getRandom(0, 3)]
 
 // Compare choices and display result
+
+console.log(`You chose ${userInput}. Computer chose ${computer}.`);
 switch (userInput) {
     case "rock":
         if(computer == "paper"){
-            console.log(`You chose ${userInput}. Computer chose ${computer}.Oh no, You lose!`);
+            console.log("Oh no, You lose!");
 
         }else if(computer == "scissors"){
-            console.log(`You chose ${userInput}. Computer chose ${computer}. You win!`);
+            console.log("You win!");
             
         }else{
-            console.log(`You chose ${userInput}. Computer chose ${computer}. It' a tie!`);
+            console.log("It' a tie!");
 
         }
         break;
     case "paper":
         if(computer == "scissors"){
-            console.log(`You chose ${userInput}. Computer chose ${computer}.Oh no, You lose!`);
+            console.log("Oh no, You lose!");
 
         }else if(computer == "rock"){
-            console.log(`You chose ${userInput}. Computer chose ${computer}. You win!`);
+            console.log("You win!");
 
         } else {
-            console.log(`You chose ${userInput}. Computer chose ${computer}. It' a tie!`);
+            console.log("It' a tie!");
         }
         break;
     case "scissors":
         if(computer == "rock"){
-            console.log(`You chose ${userInput}. Computer chose ${computer}.Oh no, You lose!`);
+            console.log("Oh no, You lose!");
 
         }else if(computer == "paper"){
-            console.log(`You chose ${userInput}. Computer chose ${computer}. You win!`);
+            console.log("You win!");
 
         } else {
-            console.log(`You chose ${userInput}. Computer chose ${computer}. It' a tie!`);
+            console.log("It' a tie!");
         }
         break;
 }
