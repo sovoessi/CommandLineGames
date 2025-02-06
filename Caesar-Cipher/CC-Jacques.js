@@ -9,7 +9,7 @@ const args = process.argv.slice(2)
 console.log('args', args);
 
 // Valid arguments
-if (args.length < 2 && isNaN(args[1])) {
+if (args.length < 2 || isNaN(args[1])) {
     console.log("Please provide a phrase and a shift number");
     return;
 }
