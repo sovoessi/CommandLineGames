@@ -1,6 +1,6 @@
 // TEST CASES 
 // 'The quick brown fox jumps over the lazy dog.'
-// Please provide a word or a sentence
+// Please provide a Word or A sentence
 // Happy  => appyhay
 // Child  => Ildchay
 // Awesome => Awesomeway
@@ -45,7 +45,6 @@ function isAsingleConsonant(word){
 
 // Get user input
 const args = process.argv.slice(2)
-console.log(args);
 
 // Valid argument
 if (args.length == 0) {
@@ -55,8 +54,6 @@ if (args.length == 0) {
 
 // Retrieve words 
 const input_arr = args[0].split(' ')
-console.log(input_arr);
-
 
 input_arr.forEach(element => {
     if (isAsingleConsonant(element)){
@@ -66,25 +63,56 @@ input_arr.forEach(element => {
 })
 
 
-input_arr.forEach(word => {
-
+for(let i = 0; i < input_arr.length; ++i){
     let construct = '';
     let firstPart = '';
     let secondPart = '';
 
-    if (startsWithConsonantAndVowel(word)){
+    let word = input_arr[i];
 
-        firstPart = word.slice(1);
+    if (startsWithConsonantAndVowel(word)){
+        // Example Happy
+        firstPart = word.slice(1); // appy
 
         if(startsWithCapitalLetter(word)){
+            // A + ppy
             firstPart = firstPart.charAt(0).toUpperCase() + firstPart.slice(1);
         }
+        // h
         secondPart = word[0].toLowerCase();
+        // App + h + ay
         construct = firstPart + secondPart + 'ay';
 
         result.push(construct);
-        console.log(result);
-        
-
+        continue;
     }
-});
+    if (startsWithTwoConsonants(word)) {
+        //Example Child
+        firstPart = word.slice(2); // ild
+
+        if(startsWithCapitalLetter(word) && (word.length == 2)) {
+            result.push(word + "ay");
+            continue;
+        }
+
+        if(startsWithCapitalLetter(word)){
+            // I + ld
+            firstPart = firstPart.charAt(0).toUpperCase() + firstPart.slice(2); 
+        }
+
+        // ch
+        secondPart = word.slice(0,2).toLowerCase();
+        // Ild + ch + ay
+        construct = firstPart + secondPart + 'ay';
+
+        result.push(construct);
+        continue;
+    }
+
+    if (startsWithAVowel(word)) {
+        construct = word + "way";
+        result.push(construct);
+    }
+}
+
+console.log(result.join(' '));
